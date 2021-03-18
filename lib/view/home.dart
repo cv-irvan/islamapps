@@ -6,6 +6,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  String nama;
+
   tanyanama(BuildContext context) {
     showModalBottomSheet(
       backgroundColor: Colors.transparent,
@@ -19,68 +21,74 @@ class _HomeState extends State<Home> {
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
               )),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                'Assalamu’alaikum.',
-                style: GoogleFonts.poppins(
-                    color: hitam, fontWeight: FontWeight.w500, fontSize: 20),
-              ),
-              Text(
-                'Saya Islami Apps, Boleh tau saya akan memanggilmu siapa?',
-                style: GoogleFonts.poppins(
-                    color: hitam, fontWeight: FontWeight.w300, fontSize: 18),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  isDense: true,
-                  hintText: 'Masukkan Nama',
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: utama,
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: utama,
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Assalamu’alaikum.',
+                  style: GoogleFonts.poppins(
+                      color: hitam, fontWeight: FontWeight.w500, fontSize: 20),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                width: double.infinity,
-                height: 45,
-                child: ElevatedButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: Text('OK'),
-                  style: ElevatedButton.styleFrom(
-                    primary: utama,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50)),
-                    textStyle: GoogleFonts.poppins(
-                        color: putih,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 18),
-                  ),
+                Text(
+                  'Saya Islami Apps, Boleh tau saya akan memanggilmu siapa?',
+                  style: GoogleFonts.poppins(
+                      color: hitam, fontWeight: FontWeight.w300, fontSize: 18),
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: 'Masukkan Nama',
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: utama,
+                        width: 2,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: utama,
+                        width: 2,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  onFieldSubmitted: (value) {
+                    Navigator.pop(context);
+                    setState(() {
+                      nama = value;
+                      saveNama(value);
+                    });
+                  },
+                ),
+              ],
+            ),
           ),
         );
       },
     );
+  }
+
+  @override
+  void initState() {
+    getNama().then((value) {
+      if (value != null) {
+        setState(() {
+          nama = value;
+        });
+      } else {
+        setState(() {
+          tanyanama(context);
+        });
+      }
+    });
+
+    super.initState();
   }
 
   @override
@@ -91,7 +99,7 @@ class _HomeState extends State<Home> {
         children: [
           Bg(),
           InkWell(
-            onTap: () => tanyanama(context),
+            onTap: () => rmvNama(),
             child: Container(
               padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
               height: 130,
@@ -109,11 +117,10 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   Text(
-                    'Fulan Wulandari',
+                    nama ?? '-',
                     style: GoogleFonts.poppins(
                       color: hitam,
                       fontSize: Sizeconfig.lebarLayar * 6,
-                      // fontWeight: FontWeight.w500,
                     ),
                   ),
                 ],
