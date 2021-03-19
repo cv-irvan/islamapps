@@ -21,9 +21,9 @@ class KontenKanan extends StatelessWidget {
   }
 }
 
-class Kontenkiri extends StatelessWidget {
+class KontenKiri extends StatelessWidget {
   Widget child;
-  Kontenkiri({this.child});
+  KontenKiri({this.child});
 
   @override
   Widget build(BuildContext context) {

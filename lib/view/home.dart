@@ -135,6 +135,7 @@ class _HomeState extends State<Home> {
                   t1: 'Doa-doa Tahlil',
                   t2: 'Versi Lengkap',
                   t3: '01',
+                  ontap: hitDoaTahlil,
                 ),
                 ItemMenu(
                   t1: 'Asmaul Husna',
@@ -184,6 +185,18 @@ class _HomeState extends State<Home> {
       Navigator.pop(context);
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => AyatKursi(data: value)));
+    });
+  }
+
+  void hitDoaTahlil() {
+    print('telah di tekan');
+    showLoading(context);
+    DoaTahlilBloc blocdoatahlil = DoaTahlilBloc();
+    blocdoatahlil.getDoaTahlil();
+    blocdoatahlil.doatahlil.listen((value) {
+      Navigator.pop(context);
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => DoaTahlil(data: value)));
     });
   }
 }

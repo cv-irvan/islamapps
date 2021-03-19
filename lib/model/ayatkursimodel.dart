@@ -1,12 +1,13 @@
 part of 'importmodel.dart';
 
 class AyatKursiModel {
-  Data data;
+  DataAyatKursi data;
 
   AyatKursiModel({this.data});
 
   AyatKursiModel.fromJson(Map<String, dynamic> json) {
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data =
+        json['data'] != null ? new DataAyatKursi.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -18,15 +19,15 @@ class AyatKursiModel {
   }
 }
 
-class Data {
+class DataAyatKursi {
   String tafsir;
   String translation;
   String arabic;
   String latin;
 
-  Data({this.tafsir, this.translation, this.arabic, this.latin});
+  DataAyatKursi({this.tafsir, this.translation, this.arabic, this.latin});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  DataAyatKursi.fromJson(Map<String, dynamic> json) {
     tafsir = json['tafsir'];
     translation = json['translation'];
     arabic = json['arabic'];

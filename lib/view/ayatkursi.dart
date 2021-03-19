@@ -36,7 +36,7 @@ class _AyatKursiState extends State<AyatKursi> {
                   SizedBox(
                     height: 10,
                   ),
-                  Kontenkiri(
+                  KontenKiri(
                     child: Text(
                       '"' + widget.data.data.latin + '"',
                       textAlign: TextAlign.left,
@@ -46,7 +46,7 @@ class _AyatKursiState extends State<AyatKursi> {
                   SizedBox(
                     height: 10,
                   ),
-                  Kontenkiri(
+                  KontenKiri(
                     child: Text(
                       'Artinya : \n \n"' + widget.data.data.translation + '"',
                       textAlign: TextAlign.left,
@@ -56,7 +56,7 @@ class _AyatKursiState extends State<AyatKursi> {
                   SizedBox(
                     height: 10,
                   ),
-                  Kontenkiri(
+                  KontenKiri(
                     child: Text(
                       'Tafsir : \n \n' + widget.data.data.tafsir,
                       textAlign: TextAlign.left,
