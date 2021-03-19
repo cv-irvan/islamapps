@@ -5,3 +5,6 @@ part 'color.dart';
 part 'sizeconfig.dart';
 part 'Bg.dart';
 part 'itemmenu.dart';
+part 'dialog.dart';
+part 'konten.dart';
+part 'barapps.dart';

@@ -150,6 +150,7 @@ class _HomeState extends State<Home> {
                   t1: 'Ayat Kursi',
                   t2: 'Beserta Tafsir',
                   t3: '04',
+                  ontap: hitAyatKursi,
                 ),
                 ItemMenu(
                   t1: 'Kisah Nabi',
@@ -172,5 +173,17 @@ class _HomeState extends State<Home> {
         ],
       ),
     );
+  }
+
+  void hitAyatKursi() {
+    print('telah menekan tombol');
+    showLoading(context);
+    AyatKursiBloc blocayatkursi = AyatKursiBloc();
+    blocayatkursi.getAyatKursi();
+    blocayatkursi.ayatkursi.listen((value) {
+      Navigator.pop(context);
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => AyatKursi(data: value)));
+    });
   }
 }
