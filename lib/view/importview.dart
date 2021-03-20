@@ -10,3 +10,4 @@ import 'package:islam/bloc/importbloc.dart';
 part 'home.dart';
 part 'ayatkursi.dart';
 part 'doatahlil.dart';
+part 'asmaulhusna.dart';

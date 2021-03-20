@@ -1,4 +1,4 @@
-package com.example.islam
+package com.airdev.islam
 
 import io.flutter.embedding.android.FlutterActivity
 

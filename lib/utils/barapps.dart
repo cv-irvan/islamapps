@@ -8,7 +8,7 @@ class Barapps extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 70,
-      // color: putih.withOpacity(0.1),
+      margin: EdgeInsets.only(top: 35),
       child: Row(
         children: [
           InkWell(

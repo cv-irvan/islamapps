@@ -24,4 +24,16 @@ class Api {
       print('req doa tahlil gagal ${doatahlil.statusCode}');
     }
   }
+
+  Future getAsmaulHusna() async {
+    final asmaulhusna = await req.get(
+        Uri.parse('https://islamic-api-zhirrr.vercel.app/api/asmaulhusna'));
+    print('telah sampai api');
+    if (asmaulhusna.statusCode == 200) {
+      print('req asmaul husna berhasil');
+      return AsmaulHusnaModel.fromJson(json.decode(asmaulhusna.body));
+    } else {
+      print('req asmaul husna gagal ${asmaulhusna.statusCode}');
+    }
+  }
 }

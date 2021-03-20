@@ -112,7 +112,7 @@ class _HomeState extends State<Home> {
                     'Assalamu’alaikum,',
                     style: GoogleFonts.poppins(
                       color: hitam,
-                      fontSize: Sizeconfig.lebarLayar * 6,
+                      fontSize: 23,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -120,7 +120,7 @@ class _HomeState extends State<Home> {
                     nama ?? '-',
                     style: GoogleFonts.poppins(
                       color: hitam,
-                      fontSize: Sizeconfig.lebarLayar * 6,
+                      fontSize: 21,
                     ),
                   ),
                 ],
@@ -141,6 +141,7 @@ class _HomeState extends State<Home> {
                   t1: 'Asmaul Husna',
                   t2: 'Sifat-sifat Allah',
                   t3: '02',
+                  ontap: hitAsmaulHusna,
                 ),
                 ItemMenu(
                   t1: 'Doa-doa Harian',
@@ -197,6 +198,18 @@ class _HomeState extends State<Home> {
       Navigator.pop(context);
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => DoaTahlil(data: value)));
+    });
+  }
+
+  void hitAsmaulHusna() {
+    print('telah di tekan');
+    showLoading(context);
+    AsmaulHusmaBloc blocasmaulHusma = AsmaulHusmaBloc();
+    blocasmaulHusma.getAsmaulHusna();
+    blocasmaulHusma.asmaulhusna.listen((value) {
+      Navigator.pop(context);
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => AsmaulHusna(data: value)));
     });
   }
 }
