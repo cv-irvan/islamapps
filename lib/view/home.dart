@@ -147,6 +147,7 @@ class _HomeState extends State<Home> {
                   t1: 'Doa-doa Harian',
                   t2: 'Beserta terjemahan',
                   t3: '03',
+                  ontap: hitDoaHarian,
                 ),
                 ItemMenu(
                   t1: 'Ayat Kursi',
@@ -210,6 +211,18 @@ class _HomeState extends State<Home> {
       Navigator.pop(context);
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => AsmaulHusna(data: value)));
+    });
+  }
+
+  void hitDoaHarian() {
+    print('telah di tekan');
+    showLoading(context);
+    DoaHarianBloc blocdoaHarian = DoaHarianBloc();
+    blocdoaHarian.getDoaHarian();
+    blocdoaHarian.doaharian.listen((value) {
+      Navigator.pop(context);
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => DoaHarian(data: value)));
     });
   }
 }

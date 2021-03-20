@@ -36,4 +36,16 @@ class Api {
       print('req asmaul husna gagal ${asmaulhusna.statusCode}');
     }
   }
+
+  Future getDoaHarian() async {
+    final doaharian = await req
+        .get(Uri.parse('https://islamic-api-zhirrr.vercel.app/api/doaharian'));
+    print('telah sampai api');
+    if (doaharian.statusCode == 200) {
+      print('req doa harian berhasil');
+      return DoaHarianModel.fromJson(json.decode(doaharian.body));
+    } else {
+      print('req doa harian gagal ${doaharian.statusCode}');
+    }
+  }
 }

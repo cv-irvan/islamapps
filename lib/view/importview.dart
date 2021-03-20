@@ -11,3 +11,4 @@ part 'home.dart';
 part 'ayatkursi.dart';
 part 'doatahlil.dart';
 part 'asmaulhusna.dart';
+part 'doaharian.dart';

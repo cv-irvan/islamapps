@@ -6,7 +6,7 @@ class AyatKursiBloc {
 
   PublishSubject<AyatKursiModel> get ayatkursi => ayatkursiFatcher.stream;
   getAyatKursi() async {
-    final AyatKursiModel ayatKursiModel = await api.getAyatKursi();
+    AyatKursiModel ayatKursiModel = await api.getAyatKursi();
     ayatkursiFatcher.sink.add(ayatKursiModel);
     print('respon telah dikirim ke model');
   }
