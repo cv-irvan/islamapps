@@ -1,13 +1,13 @@
 part of 'importview.dart';
 
-class NiatSholat extends StatefulWidget {
-  NiatSholatModel data;
-  NiatSholat({this.data});
+class BacaanSholat extends StatefulWidget {
+  BacaanSholatModel data;
+  BacaanSholat({this.data});
   @override
-  _NiatSholatState createState() => _NiatSholatState();
+  _BacaanSholatState createState() => _BacaanSholatState();
 }
 
-class _NiatSholatState extends State<NiatSholat> {
+class _BacaanSholatState extends State<BacaanSholat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,7 +90,7 @@ class _NiatSholatState extends State<NiatSholat> {
                 }),
           ),
           Barapps(
-            judul: 'Niat Sholat',
+            judul: 'Bacaan Sholat',
           ),
         ],
       ),

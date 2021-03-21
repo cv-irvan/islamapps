@@ -171,6 +171,7 @@ class _HomeState extends State<Home> {
                   t1: 'Bacaan Sholat',
                   t2: 'Bacaan-bacaan Sholat',
                   t3: '07',
+                  ontap: hitBacaanSholat,
                 ),
               ],
             ),
@@ -249,6 +250,18 @@ class _HomeState extends State<Home> {
       Navigator.pop(context);
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => KisahNabi(data: value)));
+    });
+  }
+
+  void hitBacaanSholat() {
+    print('telah di tekan');
+    showLoading(context);
+    BacaanSholatBloc blocbacaanSholat = BacaanSholatBloc();
+    blocbacaanSholat.getBacaanSholat();
+    blocbacaanSholat.bacaansholat.listen((value) {
+      Navigator.pop(context);
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => BacaanSholat(data: value)));
     });
   }
 }

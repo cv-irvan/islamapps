@@ -57,4 +57,8 @@ class Api {
   Future getKisahNabi() async {
     return KisahNabiModel.fromJson(json.decode(jsonKisahNabi));
   }
+
+  Future getBacaanSholat() async {
+    return BacaanSholatModel.fromJson(json.decode(jsonbacaanSholat));
+  }
 }

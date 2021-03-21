@@ -15,3 +15,4 @@ part 'doaharian.dart';
 part 'niatsholat.dart';
 part 'kisahnabi.dart';
 part 'detailkisahnabi.dart';
+part 'bacaansholat.dart';
