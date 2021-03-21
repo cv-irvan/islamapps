@@ -48,4 +48,9 @@ class Api {
       print('req doa harian gagal ${doaharian.statusCode}');
     }
   }
+
+  Future getNiatSholat() async {
+    var data = jsonNiatSholat;
+    return NiatSholatModel.fromJson(json.decode(data));
+  }
 }

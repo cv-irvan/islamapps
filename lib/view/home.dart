@@ -164,6 +164,7 @@ class _HomeState extends State<Home> {
                   t1: 'Niat Sholat',
                   t2: 'Niat Sholat 5 Waktu',
                   t3: '06',
+                  ontap: hitNiatSholat,
                 ),
                 ItemMenu(
                   t1: 'Bacaan Sholat',
@@ -223,6 +224,18 @@ class _HomeState extends State<Home> {
       Navigator.pop(context);
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => DoaHarian(data: value)));
+    });
+  }
+
+  void hitNiatSholat() {
+    print('telah di tekan');
+    showLoading(context);
+    NiatSholatBloc blocniatSholat = NiatSholatBloc();
+    blocniatSholat.getNiatSholat();
+    blocniatSholat.niatsholat.listen((value) {
+      Navigator.pop(context);
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => NiatSholat(data: value)));
     });
   }
 }
