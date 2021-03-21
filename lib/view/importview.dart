@@ -13,3 +13,5 @@ part 'doatahlil.dart';
 part 'asmaulhusna.dart';
 part 'doaharian.dart';
 part 'niatsholat.dart';
+part 'kisahnabi.dart';
+part 'detailkisahnabi.dart';

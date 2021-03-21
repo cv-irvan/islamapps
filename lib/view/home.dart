@@ -159,6 +159,7 @@ class _HomeState extends State<Home> {
                   t1: 'Kisah Nabi',
                   t2: 'Kisah 25 Nabi',
                   t3: '05',
+                  ontap: hitKisahNabi,
                 ),
                 ItemMenu(
                   t1: 'Niat Sholat',
@@ -236,6 +237,18 @@ class _HomeState extends State<Home> {
       Navigator.pop(context);
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => NiatSholat(data: value)));
+    });
+  }
+
+  void hitKisahNabi() {
+    print('telah di tekan');
+    showLoading(context);
+    KisahNabiBloc blockisahNabi = KisahNabiBloc();
+    blockisahNabi.getKisahNabi();
+    blockisahNabi.kisahnabi.listen((value) {
+      Navigator.pop(context);
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => KisahNabi(data: value)));
     });
   }
 }

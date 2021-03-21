@@ -1,15 +1,15 @@
 part of 'importmodel.dart';
 
 class NiatSholatModel {
-  List<Data> data;
+  List<DataNiatSholat> data;
 
   NiatSholatModel({this.data});
 
   NiatSholatModel.fromJson(Map<String, dynamic> json) {
     if (json['data'] != null) {
-      data = <Data>[];
+      data = <DataNiatSholat>[];
       json['data'].forEach((v) {
-        data.add(new Data.fromJson(v));
+        data.add(new DataNiatSholat.fromJson(v));
       });
     }
   }
@@ -23,16 +23,17 @@ class NiatSholatModel {
   }
 }
 
-class Data {
+class DataNiatSholat {
   int id;
   String name;
   String arabic;
   String latin;
   String terjemahan;
 
-  Data({this.id, this.name, this.arabic, this.latin, this.terjemahan});
+  DataNiatSholat(
+      {this.id, this.name, this.arabic, this.latin, this.terjemahan});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  DataNiatSholat.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     arabic = json['arabic'];

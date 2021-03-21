@@ -53,4 +53,8 @@ class Api {
     var data = jsonNiatSholat;
     return NiatSholatModel.fromJson(json.decode(data));
   }
+
+  Future getKisahNabi() async {
+    return KisahNabiModel.fromJson(json.decode(jsonKisahNabi));
+  }
 }

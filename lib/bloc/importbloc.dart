@@ -7,3 +7,4 @@ part 'doatahlilbloc.dart';
 part 'asmaulhusnabloc.dart';
 part 'doaharianbloc.dart';
 part 'niatsholatbloc.dart';
+part 'kisahnabibloc.dart';
